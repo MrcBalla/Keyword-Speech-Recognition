@@ -1,0 +1,18 @@
+The material is divided in the following files 
+
+- Models folder, in this folder is present each model trained with each feature extraction method and 
+		using the dataset augmented with noise
+- Notebook files, used for training and evaluating each model
+- utilis.py, python script with all the support functions useful for pre processing of data and the  
+		creation of dataset object in Tensorflow
+- report_Marco_Ballarini.pdf, the report written in Latex
+- training_mask.txt / validation_mask.txt: a text file in which there are the indexes of elements in training and validation set, this in order to be able to reproduce results
+
+In order to make the code work is necessary to put the compressed dataset (speech_recognition.tar.gz) inside this folder 
+
+The models folder is structured as following:
+	models -> type of data used for training -> noisy/standard dataset -> model name
+
+Each notebook files have the name of the architecture trained on that files and the name of the type of dataset used, so if the name is RNN_methods_{}.ipynb the file will be about the training of RNN architecture for [logfbank, mfcc or mfcc_unique].
+
+Each script is written to be used in google colab, the drive repository follows the structure of this folder [in google drive the path is "content/drive/MyDrive/HDA/..."; the drive is mount to use google account but the dataset and the caching of tensorflow API is saved inside "/content" folder in google colab. This is done in order to make the retrieval of files faster (read big dataset directly from drive is painful slow) but doing this will delete the uncompressed dataset and the cache file each time the session is closed.
